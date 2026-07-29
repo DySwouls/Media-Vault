@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca | Media Vault</title>
+
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="brand">
+            <div class="brand-mark">MV</div>
+            <div class="brand-copy">
+                <h1 class="logo">Media Vault</h1>
+                <p class="brand-subtitle">Sua biblioteca digital organizada</p>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="../index.html">Casa</a>
+            <a href="biblioteca.html">Biblioteca</a>
+            <a href="#">Assistidos</a>
+            <a href="#">Favoritos</a>
+            <a href="#">Configurações</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="library-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Biblioteca</p>
+                    <h3>Explore por categoria</h3>
+                </div>
+                <a href="../index.html" class="section-link">Voltar para home</a>
+            </div>
+
+            <div class="library-toolbar">
+                <label class="search-box">
+                    <span class="search-icon">🔎</span>
+                    <input id="library-search" type="search" placeholder="Buscar por título, categoria ou status">
+                </label>
+
+                <div class="filter-group" role="group" aria-label="Filtrar por categoria">
+                    <button class="filter-chip active" data-category="all">Todos</button>
+                    <button class="filter-chip" data-category="animes">Animes</button>
+                    <button class="filter-chip" data-category="filmes">Filmes</button>
+                    <button class="filter-chip" data-category="series">Séries</button>
+                    <button class="filter-chip" data-category="jogos">Jogos</button>
+                    <button class="filter-chip" data-category="livros">Livros</button>
+                </div>
+
+                <label class="filter-select">
+                    <span>Status</span>
+                    <select id="status-filter"></select>
+                </label>
+            </div>
+
+            <div class="library-actions">
+                <button id="open-add-modal" class="add-button" type="button">+ Adicionar item</button>
+            </div>
+
+            <div class="library-layout">
+                <div class="library-panel">
+                    <div class="panel-top">
+                        <div>
+                            <p class="eyebrow">Catálogo</p>
+                            <h4>Itens salvos</h4>
+                        </div>
+                        <span id="library-count" class="count-pill">0 itens</span>
+                    </div>
+
+                    <div id="library-list" class="library-list"></div>
+                </div>
+            </div>
+
+            <div id="add-modal" class="modal-overlay" aria-hidden="true">
+                <div class="modal-card">
+                    <div class="modal-header">
+                        <div>
+                            <p class="eyebrow">Adicionar à biblioteca</p>
+                            <h4>Novo item</h4>
+                        </div>
+                        <button id="close-add-modal" class="modal-close" type="button">×</button>
+                    </div>
+
+                    <form id="library-form" class="library-form">
+                        <label>
+                            <span>Imagem</span>
+                            <input id="item-image" name="image" type="url" placeholder="Cole uma URL de imagem">
+                        </label>
+
+                        <label>
+                            <span>Título</span>
+                            <input id="item-title" name="title" type="text" placeholder="Ex.: Elden Ring" required>
+                        </label>
+
+                        <label>
+                            <span>Descrição breve</span>
+                            <textarea id="item-description" name="description" rows="3" placeholder="Uma descrição rápida da obra"></textarea>
+                        </label>
+
+                        <label>
+                            <span>Categoria principal</span>
+                            <select id="item-category" name="category">
+                                <option value="animes">Animes</option>
+                                <option value="filmes">Filmes</option>
+                                <option value="series">Séries</option>
+                                <option value="jogos">Jogos</option>
+                                <option value="livros">Livros</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            <span>Subcategorias</span>
+                            <input id="item-subcategories" name="subcategories" type="text" placeholder="Ex.: ação, fantasia, soul-like">
+                        </label>
+
+                        <label>
+                            <span>Status</span>
+                            <select id="item-status" name="status">
+                                <option value="favorito">Favorito</option>
+                                <option value="assistindo">Assistindo</option>
+                                <option value="concluido">Concluído</option>
+                                <option value="quero-ver">Quero ver</option>
+                                <option value="zerado">Zerado</option>
+                                <option value="dropado">Dropado</option>
+                                <option value="nao-joguei">Nunca joguei</option>
+                                <option value="nao-assisti">Não assisti</option>
+                                <option value="nao-li">Não li</option>
+                            </select>
+                        </label>
+
+                        <button type="submit">Salvar na biblioteca</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="detail-modal" class="modal-overlay" aria-hidden="true">
+                <div class="detail-card">
+                    <button id="close-detail-modal" class="modal-close detail-close" type="button">×</button>
+                    <div class="detail-cover" id="detail-cover"></div>
+                    <div class="detail-body">
+                        <div class="detail-header">
+                            <div>
+                                <p class="eyebrow" id="detail-category">Categoria</p>
+                                <h3 id="detail-title">Título da obra</h3>
+                                <p id="detail-description">Descrição da obra</p>
+                            </div>
+                            <div class="detail-meta">
+                                <span class="badge" id="detail-status">Status</span>
+                                <span class="badge" id="detail-year">Ano</span>
+                            </div>
+                        </div>
+                        <div class="detail-info-grid">
+                            <div>
+                                <strong>Subcategorias</strong>
+                                <p id="detail-subcategories">Ação, fantasia</p>
+                            </div>
+                            <div>
+                                <strong>Nota pessoal</strong>
+                                <p id="detail-note">Comentário do usuário</p>
+                            </div>
+                            <div>
+                                <strong>Review</strong>
+                                <p id="detail-review">Breve review sobre a obra.</p>
+                            </div>
+                            <div>
+                                <strong>Adicionado em</strong>
+                                <p id="detail-added">Data de adição</p>
+                            </div>
+                        </div>
+                        <form id="detail-form" class="detail-form">
+                            <label>
+                                <span>Status</span>
+                                <select id="detail-status-input">
+                                    <option value="favorito">Favorito</option>
+                                    <option value="assistindo">Assistindo</option>
+                                    <option value="concluido">Concluído</option>
+                                    <option value="quero-ver">Quero ver</option>
+                                    <option value="zerado">Zerado</option>
+                                    <option value="dropado">Dropado</option>
+                                    <option value="nao-joguei">Nunca joguei</option>
+                                    <option value="nao-assisti">Não assisti</option>
+                                    <option value="nao-li">Não li</option>
+                                </select>
+                            </label>
+                            <label>
+                                <span>Último comentário</span>
+                                <textarea id="detail-note-input" rows="3"></textarea>
+                            </label>
+                            <label>
+                                <span>Subcategorias</span>
+                                <input id="detail-subcategories-input" type="text" placeholder="Ação, fantasia, drama">
+                            </label>
+                            <div class="detail-actions">
+                                <button type="button" id="detail-delete" class="secondary-button">Excluir</button>
+                                <button type="submit" class="primary-button">Salvar alterações</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Media Vault © 2026 • Organize sua coleção com estilo.</p>
+    </footer>
+
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/ui.js"></script>
+    <script src="../assets/js/app.js"></script>
+</body>
+
+</html>

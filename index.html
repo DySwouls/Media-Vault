@@ -10,13 +10,124 @@
 
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/variables.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/home.css">
 
 </head>
 
 <body>
 
-    <h1>Media Vault</h1>
+    <header class="header">
+        <div class="brand">
+            <div class="brand-mark">MV</div>
+            <div class="brand-copy">
+                <h1 class="logo">Media Vault</h1>
+                <p class="brand-subtitle">Catálogo pessoal de filmes, séries, jogos e muito mais</p>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="index.html">Casa</a>
+            <a href="pages/biblioteca.html">Biblioteca</a>
+            <a href="#">Assistidos</a>
+            <a href="#">Favoritos</a>
+            <a href="#">Configurações</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">Sua biblioteca personalizada</p>
+                <h2>Bem-vindo de volta!</h2>
+                <p>Organize seus animes, filmes, séries, jogos e livros em um só lugar com uma experiência mais elegante.</p>
+            </div>
+
+            <div class="hero-panel">
+                <span class="hero-pill">Estante digital</span>
+                <span class="hero-pill">Favoritos em destaque</span>
+                <span class="hero-pill">Atualizações rápidas</span>
+            </div>
+        </section>
+
+        <section class="home-categories">
+            <article class="home-category-card main-card anime">
+                <div class="home-card-top">
+                    <span class="home-card-label">Categoria principal</span>
+                    <h3>🎌 Animes</h3>
+                </div>
+                <p>Catálogo com obras populares, clássicos e séries em andamento.</p>
+                <div class="home-card-list">
+                    <a href="pages/biblioteca.html?category=animes">Naruto</a>
+                    <a href="pages/biblioteca.html?category=animes">One Piece</a>
+                    <a href="pages/biblioteca.html?category=animes">Attack on Titan</a>
+                </div>
+                <a href="pages/biblioteca.html?category=animes">Ver animes</a>
+            </article>
+
+            <article class="home-category-card main-card filmes">
+                <div class="home-card-top">
+                    <span class="home-card-label">Categoria principal</span>
+                    <h3>🎬 Filmes</h3>
+                </div>
+                <p>Guarde seus favoritos, clássicos e lançamentos em um painel só.</p>
+                <div class="home-card-list">
+                    <a href="pages/biblioteca.html?category=filmes">Interstellar</a>
+                    <a href="pages/biblioteca.html?category=filmes">Parasita</a>
+                    <a href="pages/biblioteca.html?category=filmes">Blade Runner</a>
+                </div>
+                <a href="pages/biblioteca.html?category=filmes">Ver filmes</a>
+            </article>
+
+            <article class="home-category-card main-card series">
+                <div class="home-card-top">
+                    <span class="home-card-label">Categoria principal</span>
+                    <h3>📺 Séries</h3>
+                </div>
+                <p>Organize o que você está assistindo e o que quer ver.</p>
+                <div class="home-card-list">
+                    <a href="pages/biblioteca.html?category=series">Breaking Bad</a>
+                    <a href="pages/biblioteca.html?category=series">Stranger Things</a>
+                    <a href="pages/biblioteca.html?category=series">Succession</a>
+                </div>
+                <a href="pages/biblioteca.html?category=series">Ver séries</a>
+            </article>
+
+            <article class="home-category-card main-card jogos">
+                <div class="home-card-top">
+                    <span class="home-card-label">Categoria principal</span>
+                    <h3>🎮 Jogos</h3>
+                </div>
+                <p>Liste jogos concluídos, favoritos, dropados ou ainda em progresso.</p>
+                <div class="home-card-list">
+                    <a href="pages/biblioteca.html?category=jogos">Elden Ring</a>
+                    <a href="pages/biblioteca.html?category=jogos">Hades</a>
+                    <a href="pages/biblioteca.html?category=jogos">Portal 2</a>
+                </div>
+                <a href="pages/biblioteca.html?category=jogos">Ver jogos</a>
+            </article>
+
+            <article class="home-category-card main-card livros">
+                <div class="home-card-top">
+                    <span class="home-card-label">Categoria principal</span>
+                    <h3>📚 Livros</h3>
+                </div>
+                <p>Guarde leituras concluídas e livros para o futuro.</p>
+                <div class="home-card-list">
+                    <a href="pages/biblioteca.html?category=livros">1984</a>
+                    <a href="pages/biblioteca.html?category=livros">Duna</a>
+                    <a href="pages/biblioteca.html?category=livros">O Hobbit</a>
+                </div>
+                <a href="pages/biblioteca.html?category=livros">Ver livros</a>
+            </article>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>Media Vault © 2026 • Organize sua coleção com estilo.</p>
+    </footer>
 
     <script src="assets/js/api.js"></script>
     <script src="assets/js/storage.js"></script>

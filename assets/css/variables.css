@@ -1,0 +1,22 @@
+:root{
+
+    /* Colors */
+
+    --background: #090909;
+    --surface: #151515;
+    --surface-hover: #202020;
+
+    --text: #FFFFFF;
+    --text-secondary: #A5A5A5;
+
+    --border: #2A2A2A;
+
+    /* Sizes */
+
+    --radius: 14px;
+
+    /* Animation */
+
+    --transition: .25s ease;
+
+}
